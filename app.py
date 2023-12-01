@@ -31,7 +31,7 @@ def exportar_datos():
             SELECT Nombre, Apellidos, Numero_Identificacion, Fecha_de_Nacimiento, Fecha_de_Jubilacion,
             Bases_de_Cotizacion, Comunidad_Autonoma, Invalidez, Base_Reguladora, Total_Meses_Cotizados,
             Pension, Pension_Final, Anos_Enteros_Cotizados, Meses_Cotizados, Anos_Cotizados_Decimal,
-            Edad, Grupo_Edades, Pension_Final_con_Complementos 
+            Edad, Grupo_Edades, Pension_Final_con_Complementos, Vivo, Correo, Bueno
             FROM datos
         """
 
@@ -61,7 +61,10 @@ def exportar_datos():
                     'Anos_Cotizados_Decimal__c': float(row[14]),
                     'Edad__c': int(row[15]),
                     'Grupo_Edades__c': row[16],
-                    'Pension_Final_con_Complementos__c': float(row[17])
+                    'Pension_Final_con_Complementos__c': float(row[17]),
+                    'vivo__c': bool(row[18]),
+                    'correo__c': row[19],
+                    'bueno__c': bool(row[20])
                 }
                 datos_a_exportar.append(data)
 
@@ -107,6 +110,5 @@ def exportar_datos():
 
 if __name__ == '__main__':
     app.run(port=5002, debug=True)
-
 
 
